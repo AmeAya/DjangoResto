@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dish By Weight</title>
+</head>
+<body>
+    {% for dish in dishByWeight %}
+        <h3>{{ dish.name }}</h3>
+        <p>{{ dish.weight }}</p>
+    {% endfor %}
+</body>
+</html>
