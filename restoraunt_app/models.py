@@ -1,13 +1,11 @@
 from django.db import models
-
+from django.contrib.postgres.fields import ArrayField
 # Create your models here.
 
 class Dishes(models.Model):
     name = models.CharField(max_length=50)
     weight = models.FloatField(max_length=20)
-    ingredient1 = models.ForeignKey('ingredients', on_delete=models.CASCADE, related_name='ingr1')
-    ingredient2 = models.ForeignKey('ingredients', on_delete=models.CASCADE, related_name='ingr2')
-    ingredient3 = models.ForeignKey('ingredients', on_delete=models.CASCADE, related_name='ingr3')
+    ingredients = models.ManyToManyField('Ingredients')
     kitchen = models.ForeignKey('KitchenTypes', on_delete=models.CASCADE)
 
     def __str__(self):

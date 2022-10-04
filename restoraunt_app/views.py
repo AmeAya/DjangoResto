@@ -20,5 +20,6 @@ def DishByIngredient(request, ingredientId):
 
 def DishByWeight(request):
     searchWeight = float(request.GET.get('WeightSearch'))
-    queryset = Dishes.objects.filter(weight__gte=searchWeight)
+    queryset = 'Hello'
     return render(request, 'dishByWeight.html', {'dishByWeight': queryset})
+
