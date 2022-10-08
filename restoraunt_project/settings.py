@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'restoraunt_app.apps.RestorauntAppConfig'
+    'restoraunt_app.apps.RestorauntAppConfig',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -64,10 +65,16 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processor.cart_total_amount',
             ],
         },
     },
 ]
+
+CART_SESSION_ID = 'cart'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 5 * 60
 
 WSGI_APPLICATION = 'restoraunt_project.wsgi.application'
 

@@ -7,6 +7,7 @@ class Dishes(models.Model):
     weight = models.FloatField(max_length=20)
     ingredients = models.ManyToManyField('Ingredients')
     kitchen = models.ForeignKey('KitchenTypes', on_delete=models.CASCADE)
+    price = models.FloatField()
 
     def __str__(self):
         return self.name
