@@ -66,3 +66,14 @@ def cart_clear(request):
 @login_required(login_url="/users/login")
 def cart_detail(request):
     return render(request, 'cart/cart_detail.html')
+
+def cart_test_view(request):
+    new = Dishes(name='Test',
+                 weight=200,
+                 kitchen=KitchenTypes.objects.get(id=1),
+                 price=500.0)
+    Ingredient1 = Ingredients.objects.get(id=1)
+    Ingredient2 = Ingredients.objects.get(id=2)
+    new.save()
+    new.ingredients.add(Ingredient1, Ingredient2)
+    return render(request, 'test.html')
