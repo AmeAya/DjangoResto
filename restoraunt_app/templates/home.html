@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<ul>
-{% for dish in dishes %}
-    <li>{{ dish.name }}</li>
-    <ol>
-        {% for ingredient in dish.ingredients.all %}
-            <li>{{ ingredient.name }}</li>
+    <ul>
+        {% for dish in dishes %}
+            <li>{{ dish.name }}</li>
+            <ol>
+                {% for ingredient in dish.ingredients.all %}
+                    <li>{{ ingredient.name }}</li>
+                {% endfor %}
+            </ol>
+            <li>{{ dish.price }}</li>
+            <a href="{% url 'cart_add' dish.id %}">Add To Cart</a>
         {% endfor %}
-    </ol>
-    <li>{{ dish.price }}</li>
-    <a href="{% url 'cart_add' dish.id %}">Add To Cart</a>
-{% endfor %}
-</ul>
-<a href="{% url 'cart_detail'%}">Show Cart</a>
+    </ul>
+    <a href="{% url 'cart_detail' %}">Show Cart</a>
+    <a href="{% url 'payment' %}">Payment Test</a>
 {% endblock content %}

@@ -77,3 +77,7 @@ def cart_test_view(request):
     new.save()
     new.ingredients.add(Ingredient1, Ingredient2)
     return render(request, 'test.html')
+
+def payment_test_view(request):
+
+    return redirect(MenuView)
